@@ -24,7 +24,7 @@ const buildConfig = {
                 {
                     entryPoints: [path.resolve(__dirname, "./src/index.tsx")],
                     filename: "index.html",
-                    title: "esbuild react demo",
+                    title: "Peter Yuan",
                     htmlTemplate: `<!DOCTYPE html>
                 <html lang="en">
                 <head>

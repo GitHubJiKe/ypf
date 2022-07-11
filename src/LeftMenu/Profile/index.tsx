@@ -24,6 +24,15 @@ export default function Profile() {
     return (
         <Card className="profile">
             <h3>Peter Yuan</h3>
+            <img
+                className="github"
+                width={50}
+                height={50}
+                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                onClick={() => {
+                    window.open("https://github.com/GitHubJiKe");
+                }}
+            />
             <div
                 className="avatar"
                 style={{ backgroundImage: `url(${avatar})` }}

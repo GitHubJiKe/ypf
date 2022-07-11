@@ -8,6 +8,7 @@ body {
     border          : none;
     padding         : $value12;
     background-color: #1e2761;
+    user-select     : none;
 }
 
 #root {
@@ -26,106 +27,110 @@ body {
     }
 }
 
-.profile {
-    display        : flex;
-    flex-direction : column;
-    justify-content: center;
-    align-items    : center;
 
-    .avatar {
-        width              : 160px;
-        height             : 160px;
-        border-radius      : 50%;
-        background-position: center;
-        background-repeat  : no-repeat;
-        background-size    : cover;
-    }
-
-    .infos {
-        margin-top: $value12;
-
-        .info-item {
-            display   : flex;
-            min-width : 200px;
-            margin-top: $value6;
-
-            &:first-child {
-                margin-top: 0;
-            }
-
-            .label {
-                flex      : 6;
-                text-align: left;
-                color     : #6b7b8c;
-            }
-
-            .value {
-                flex       : 6;
-                text-align : right;
-                font-weight: 800;
-                font-size  : 16px;
-            }
-        }
-    }
-}
 
 .left-menu {
     flex     : 2;
     min-width: 385px;
-}
 
-.quote-box {
-    margin-top: $value24;
+    .profile {
+        display        : flex;
+        flex-direction : column;
+        justify-content: center;
+        align-items    : center;
+        position       : relative;
 
-    .quote {
-        font-size  : 16px;
-        font-weight: 700;
+        .avatar {
+            width              : 160px;
+            height             : 160px;
+            border-radius      : 50%;
+            background-position: center;
+            background-repeat  : no-repeat;
+            background-size    : cover;
+        }
+
+        .infos {
+            margin-top: $value12;
+
+            .info-item {
+                display   : flex;
+                min-width : 200px;
+                margin-top: $value6;
+
+                &:first-child {
+                    margin-top: 0;
+                }
+
+                .label {
+                    flex      : 6;
+                    text-align: left;
+                    color     : #6b7b8c;
+                }
+
+                .value {
+                    flex       : 6;
+                    text-align : right;
+                    font-weight: 800;
+                    font-size  : 16px;
+                }
+            }
+        }
     }
 
-    .quote-hide {
-        font-size  : 16px;
-        font-weight: 700;
+    .quote-box {
+        margin-top: $value24;
+
+        .quote {
+            font-size  : 16px;
+            font-weight: 700;
+        }
+
+        .quote-hide {
+            font-size  : 16px;
+            font-weight: 700;
+        }
+
+        .quote-hide::before {
+            content     : "“";
+            color       : transparent;
+            font-size   : 24px;
+            font-weight : 700;
+            margin-right: $value6;
+        }
+
+        .quote::before {
+            content     : "“";
+            color       : #500472;
+            font-size   : 24px;
+            font-weight : 700;
+            margin-right: $value6;
+        }
     }
 
-    .quote-hide::before {
-        content     : "“";
-        color       : transparent;
-        font-size   : 24px;
-        font-weight : 700;
-        margin-right: $value6;
-    }
+    .skills-box {
+        margin-top: $value24;
 
-    .quote::before {
-        content     : "“";
-        color       : #500472;
-        font-size   : 24px;
-        font-weight : 700;
-        margin-right: $value6;
-    }
-}
+        .skill-inner {
+            display              : grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap                  : $value12;
+            margin-top           : $value12;
 
-.skills-box {
-    margin-top: $value24;
-
-    .skill-inner {
-        display              : grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap                  : $value12;
-        margin-top           : $value12;
-
-        .skill {
-            background-color: #e5e5dc;
-            color           : #000;
-            padding         : $value6 $value12;
-            border-radius   : $value24;
-            text-align      : center;
+            .skill {
+                background-color: #e5e5dc;
+                color           : #000;
+                padding         : $value6 $value12;
+                border-radius   : $value24;
+                text-align      : center;
+            }
         }
     }
 }
 
+
 .right-content {
     flex     : 10;
-    min-width: 700px;
+    min-width: 650px;
 
     article {
         color     : #6b7b8c;
@@ -140,5 +145,41 @@ body {
 
     a:hover {
         text-decoration: underline;
+    }
+}
+
+.github {
+    transform: rotate(45deg);
+    position : absolute;
+    top      : 10px;
+    right    : 10px;
+    cursor   : pointer;
+}
+
+
+@media screen and (max-width: 750px) {
+
+
+    #root {
+        display       : flex;
+        gap           : $value24;
+        flex-direction: column;
+    }
+
+    .left-menu {
+        min-width: 100%;
+
+        .skill {
+            background-color: #e5e5dc;
+            color           : #000;
+            padding         : $value6 !important;
+            border-radius   : $value24;
+            text-align      : center;
+            font-size       : $value12;
+        }
+    }
+
+    .right-content {
+        min-width: 100%;
     }
 }
